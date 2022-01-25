@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js" integrity="sha512-YsR46MmyChktsyMMou+Bs74oCa/CDdwft7rJ5wlnmDzMj1mzqncsfJamEEf99Nk7IB0JpTMo5hS8rxB49FUktQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/main.css">
+    </head>
+    <body>
+        <div class="container-fluid">
+            <div class="row navbar c-navbar">
+                <div class="col-2">
+                    <button id="menu-btn" class="show-on-720px" aria-target="phoneMenu" aria-expanded="false">menu</button>
+                </div>
+                <div class="col-8 d-flex align-content-center justify-content-center">
+                    <a>
+                        LRCEditor
+                    </a>
+                </div>
+                <div class="col-2 d-flex">
+                    <button class="width-50px" onclick="console.log(FileData, LRCData, EditorData)"></button>
+                </div>
+            </div>
+            <div class="row c-content">
+                <div class="col-3 hide-on-720px">
+                    <button id="import-btn-audio">Import Audio</button>
+                    <input type="file" id="import-hidden-audio" class="hidden" accept=".mp3, .wav">
+                    <input type="text" id="input-audio-name">
+                </div>
+                <div class="col-9">
+                    <button id="import-btn-lrc">Import</button>
+                    <button id="export-btn-lrc">Export</button>
+                    <input type="file" id="import-hidden-lrc" class="hidden" accept=".lrc">
+                    <input type="text" id="input-lrc-name">
+                    <ul id="lrc-table"></ul>
+                </div>
+            </div>
+            <div class="row player-controls">
+                <div class="col-3-lg col-12-lg justify-content-center align-items-end" style="display: flex;">
+                    <button id="player-btn-rewind" class="player-btn"><img id="player-img-rewind" src="imgs/rewind-icon-outline-128x128.png" alt="rew"></button>
+                    <button id="player-btn-play-pause" class="player-btn"><img id="player-img-pp" src="imgs/play-icon-outline-128x128.png" alt="play"></button>
+                    <button id="player-btn-foward" class="player-btn"><img id="player-img-foward" src="imgs/foward-icon-outline-128x128.png" alt="fow"></button>
+                    <button id="player-btn-time">
+                        <span id="player-current-time">--:--.---</span>
+                        <span>/</span>
+                        <span id="player-audio-length">--:--.---</span>
+                    </button>
+                    
+                    <div id="player-audio-controls" class="hide-on-720px">
+                        <button id="pac-phone-btn" class="show-on-720px"><img src="imgs/foward-icon-outline-128x128.png"></button>
+                        <img class="hide-on-720px" src="imgs/foward-icon-outline-128x128.png">
+                        <div id="player-volume"></div>
+                        <input type="range" orient="vertical" id="player-volume-bar" min="0" max="100" value="50">
+                    </div>
+                    <button id="player-time-setter">set time</button>
+                    <audio id="player-audio"></audio>
+                </div>
+                <div class="col-9-lg">
+                    
+                    <input type="range" orient="horizontal" id="player-progress-bar" min="0" max="0" value="0">
+                </div>
+            </div>
+        </div>
+        <div id="window-menu" class="hidden">
+            <ul class="window-menu-content">
+                <li>
+                    <button id="wmc-close">close menu</button>
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <button id="wmc-import-audio">Import Audio</button>
+                    <input type="text" id="wmc-audio-name">
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <img>
+                    <button>settings</button>
+                </li>
+            </ul>
+        </div>
+        <div id="window-import-choice" class="hidden">
+            <div>
+                <div class="window-import-choice-content">
+                    <div class="wicc-1">
+                        <button id="wicc-import-file">Import LRC File</button>
+                    </div>
+                    <div class="wicc-2">
+                        <p>----------- OR -----------</p>
+                        <p>↓ Paste lyrics here ↓</p>
+                    </div>
+                    <div class="wicc-3">
+                        <textarea id="wicc-textarea"></textarea>
+                    </div>
+                    <div class="wicc-4">
+                        <button id="wicc-cancel">Cancel</button>
+                        <button id="wicc-continue">Continue</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+
+    <script src="js/main.js"></script>
+    <script src="js/GlobalVars.js"></script>
+    <script src="js/FileManager.js"></script>
+    <script src="js/Player.js"></script>
+    <script src="js/Table.js"></script>
+    <script src="js/TimeThings.js"></script>
+
+</html>
