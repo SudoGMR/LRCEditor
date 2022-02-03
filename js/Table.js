@@ -5,7 +5,13 @@ document.addEventListener('click', (e) => {
 
     if(e.target.getAttribute('id') != null){
         if(e.target.getAttribute('id').substring(0, 9) == 't-time-p-' || e.target.getAttribute('id').substring(0, 9) == 't-data-p-'){
-            SelectLine(e.target);
+            if(lastSelected == undefined){
+                SelectLine(e.target);
+            }
+            /*
+            console.log(currentlySelected);
+            console.log(lastSelected);
+            */
         }
         if(e.target.getAttribute('id') == 'window-import-choice'){}
     }
@@ -23,12 +29,24 @@ document.addEventListener('click', (e) => {
     }
 });
 
+DelSpecLineBtn.onclick = () => {DelSelectedLine()};
+
+NewLineAbSelBtn.onclick = () => {NewLineAbSel()};
+
 document.addEventListener('dblclick', (e) => {
-    EditLineData(e.target);
+    if(e.target.getAttribute('id').substring(0, 9) == 't-time-p-' || e.target.getAttribute('id').substring(0, 9) == 't-data-p-'){
+        EditLineData(e.target);
+    }
 })
 
 document.addEventListener('keydown', (e) => {
+
     if(WICC.getAttribute('class') == 'hidden'){
+
+        if(["Space","ArrowUp","ArrowDown"].indexOf(e.code) > -1) {
+            e.preventDefault();
+        }
+
         let lastSelected = EHData.lastSelected;
         let currentlySelected = EHData.currentlySelected;
 
@@ -43,6 +61,44 @@ document.addEventListener('keydown', (e) => {
             }
             if(e.key == 'k'){
                 console.log(EditorData);
+            }
+            if(e.key == 'j'){
+                console.log('calling');
+                DelSelectedLine()
+            }
+        }
+        
+        if(e.key == 'ArrowUp'){
+            let selectedId = currentlySelected.getAttribute('id').substring(0, 9);
+            let nextLineNum = parseInt(currentlySelected.getAttribute('id').substring(9)) - parseInt(1);
+            if(nextLineNum != -1){
+                let nextLine = document.getElementById(selectedId + nextLineNum);
+                SelectLine(nextLine);
+                //console.log(isScrolledIntoView(nextLine));
+            }
+        }
+        if(e.key == 'ArrowDown'){
+            let selectedId = currentlySelected.getAttribute('id').substring(0, 9);
+            let nextLineNum = parseInt(currentlySelected.getAttribute('id').substring(9)) + parseInt(1);
+            if(nextLineNum != LRCData.length){
+                let nextLine = document.getElementById(selectedId + nextLineNum);
+                SelectLine(nextLine);
+                //console.log(isScrolledIntoView(nextLine));
+            }
+        }
+        if(PlayerAudio.paused){
+            if(e.key == 'ArrowLeft'){
+                SelectLine(document.getElementById('t-time-p-' + currentlySelected.getAttribute('id').substring(9)));
+            }
+            if(e.key == 'ArrowRight'){
+                SelectLine(document.getElementById('t-data-p-' + currentlySelected.getAttribute('id').substring(9)));
+            }
+        } else {
+            if(e.key == 'ArrowLeft'){
+                PlayerController('rewind');
+            }
+            if(e.key == 'ArrowRight'){
+                PlayerController('foward');
             }
         }
     }
@@ -61,10 +117,28 @@ function DelLine(){
     }
 }
 
+function DelSelectedLine(){
+    var lineNum = EHData.currentlySelected.getAttribute('id').substring(9);
+    for(let i = lineNum; i < LRCData.length - 1; i++){
+        console.log('moving line ' + (parseInt(i) + parseInt(1)) + ' to line '+ i);
+        var e = (parseInt(i) + parseInt(1));
+        
+        document.getElementById('t-time-p-' + i).innerHTML = LRCData[e].lineTime;
+        document.getElementById('t-data-p-' + i).innerHTML = LRCData[e].lineData;
+        document.getElementById('t-time-input-' + i).value = LRCData[e].lineTime;
+        document.getElementById('t-data-input-' + i).value = LRCData[e].lineData;
+    }
+
+    LRCData.splice(lineNum, 1);
+    LRCData[LRCData.length - 2].isUsed = false;
+    DelLine();
+}
+
 function EditLineData(e){
     if(e.getAttribute('id')){
         if(e.getAttribute('id').substring(0, 9) == 't-time-p-'){
             let input = document.getElementById('t-time-input-' + e.getAttribute('id').substring(9));
+            input.value = e.innerHTML;
             e.setAttribute('class', 'table-p hidden');
             input.setAttribute('class', 'table-input');
             input.focus();
@@ -74,6 +148,7 @@ function EditLineData(e){
         }
         if(e.getAttribute('id').substring(0, 9) == 't-data-p-'){
             let input = document.getElementById('t-data-input-' + e.getAttribute('id').substring(9));
+            input.value = e.innerHTML;
             e.setAttribute('class', 'table-p hidden');
             input.setAttribute('class', 'table-input');
             input.focus();
@@ -83,7 +158,18 @@ function EditLineData(e){
         }
     }
 }
+/* // - mot implemented yet
+function isScrolledIntoView(e){
+    let rect = e.getBoundingClientRect();
+    let eTop = rect.top;
+    let eBottom = rect.bottom;
 
+    if(eTop >= 0 && eBottom <= window.innerHeight)
+        return true;
+    else
+        return false;
+}
+*/
 function NewLine(){
     let line;
 
@@ -116,6 +202,23 @@ function NewLine(){
 
     document.getElementById(TTime).innerHTML = '';
     document.getElementById(TData).innerHTML = '';
+}
+
+function NewLineAbSel(){
+    NewLine();
+
+    let e = EHData.currentlySelected.getAttribute('id').substring(9);
+    LRCData.splice(e, 0, {isUsed: false, lineTime: '', lineTimeEx: 0, lineData: ''});
+
+    for(let i = LRCData.length - 2; i > parseInt(e) + parseInt(1); i--){
+        document.getElementById('t-time-p-' + i).innerHTML = LRCData[i].lineTime;
+        document.getElementById('t-data-p-' + i).innerHTML = LRCData[i].lineData;
+    }
+
+    document.getElementById('t-time-p-' + e).innerHTML = '';
+    document.getElementById('t-data-p-' + e).innerHTML = '';
+
+    NewLine();
 }
 
 function SaveLineData(cS, lS){
@@ -167,3 +270,4 @@ function TableController(line){
 /* --- / --- */
 
 NewLine();
+EHData.currentlySelected = document.getElementById('t-time-p-0')

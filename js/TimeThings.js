@@ -2,7 +2,7 @@
 document.addEventListener('keydown', (e) => {
     if (!e.repeat){
         if(e.key == ' '){
-            if(!PlayerAudio.paused){
+            if(!PlayerAudio.paused && EHData.currentlySelected != undefined){
                 //SetTimeToTable(e);
                 SetTableTime();
             }
@@ -10,11 +10,12 @@ document.addEventListener('keydown', (e) => {
         if(e.key == "l"){
             SetTableTime();
         }
-        if(e.key == 'j'){
-            //console.log(GetTableTime());
-        }
     }
 })
+
+TimeSetterBtn.onclick = () => {
+    SetTableTime();
+}
 
 /* --- Functions -- */
 function ConvertTime(Time){
@@ -99,6 +100,7 @@ function PlayerPlay(timeList){
     for(let i = 0; i < timeList.length; i++){
         if(timeList[i].time > time && timeList[i].time < time + 0.05 && timeList[i].line.getAttribute('class') != 'show'){
             timeList[i].line.setAttribute('class', 'show');
+            timeList[i].line.scrollIntoView({block: 'center', behavior: 'smooth'});
             setTimeout(() => {
                 timeList[i].line.setAttribute('class', '');
             }, 500)

@@ -18,7 +18,6 @@ ImportHiddenAudio.onchange = function(){
 
 ImportHiddenLRC.onchange = function(){
     FileImporter('lrc', this.files[0]);
-    WICCCancel.click();
 }
 
 InputAudioName.onchange = function(){
@@ -38,6 +37,7 @@ WICCImportFile.onclick = function(){
 WICCContinue.onclick = function(){
     TableSetter(WICCTextArea.value);
     WICCCancel.click();
+    WMCClose.click();
 }
 
 WMCImportAudio.onclick = function(){
@@ -48,6 +48,14 @@ WMCAudioName.onchange = function(){
     InputAudioName.value = WMCAudioName.value;
     FileData[0].name = WMCAudioName.value;
     FileData[1].name = WMCAudioName.value;
+}
+
+WMCExportBtnLRC.onclick = function(){
+    FileExporter('lrc');
+}
+
+WMCImportBtnLRC.onclick = function(){
+    ImportBtnLRC.click();
 }
 
 /* --- Functions --- */
@@ -106,6 +114,7 @@ function FileImporter(type, file){
         let Reader = new FileReader();
         Reader.readAsText(file);
         Reader.addEventListener('load', (e) => {
+            /*
             let ArrayLength = LRCData.length;
             for(let i = 0; i < ArrayLength - 1; i++){
                 document.getElementById('t-time-p-' + i).innerHTML = '';
@@ -119,6 +128,8 @@ function FileImporter(type, file){
             let a = e.target.result;
 
             TableSetter(a);
+            */
+            WICCTextArea.value = e.target.result;
         });
     }
 

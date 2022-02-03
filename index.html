@@ -1,15 +1,21 @@
 <!DOCTYPE html>
 <html>
     <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
         <!--<script src="https://cdnjs.cloudflare.com/ajax/libs/jsmediatags/3.9.5/jsmediatags.min.js" integrity="sha512-YsR46MmyChktsyMMou+Bs74oCa/CDdwft7rJ5wlnmDzMj1mzqncsfJamEEf99Nk7IB0JpTMo5hS8rxB49FUktQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>-->
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/main.css">
+        <link rel="stylesheet" href="css/Player.css">
+        <link rel="stylesheet" href="css/Sliders.css">
+        <link rel="stylesheet" href="css/Table.css">
     </head>
     <body>
         <div class="container-fluid">
             <div class="row navbar c-navbar">
                 <div class="col-2">
-                    <button id="menu-btn" class="show-on-720px" aria-target="phoneMenu" aria-expanded="false">menu</button>
+                    <button id="menu-btn" class="show-on-720px" aria-target="phoneMenu" aria-expanded="false">
+                        <img src="imgs/menu-outline.svg" alt="Menu">
+                    </button>
                 </div>
                 <div class="col-8 d-flex align-content-center justify-content-center">
                     <a>
@@ -17,7 +23,7 @@
                     </a>
                 </div>
                 <div class="col-2 d-flex">
-                    <button class="width-50px" onclick="console.log(FileData, LRCData, EditorData)"></button>
+                    <button class="width-50px" onclick="console.log(FileData, LRCData, EditorData, EHData)"></button>
                 </div>
             </div>
             <div class="row c-content">
@@ -26,36 +32,37 @@
                     <input type="file" id="import-hidden-audio" class="hidden" accept=".mp3, .wav">
                     <input type="text" id="input-audio-name">
                 </div>
-                <div class="col-9">
-                    <button id="import-btn-lrc">Import</button>
-                    <button id="export-btn-lrc">Export</button>
-                    <input type="file" id="import-hidden-lrc" class="hidden" accept=".lrc">
-                    <input type="text" id="input-lrc-name">
+                <div class="col-lg-9">
+                    <span class="d-flex dir-row">
+                        <button id="import-btn-lrc" class="hide-on-720px">Import</button>
+                        <button id="export-btn-lrc" class="hide-on-720px">Export</button>
+                        <button id="new-line-ab-sel-btn">New Line Above Selected</button>
+                        <button id="del-spec-line-btn">Delete Selected Line</button>
+                        <input type="file" id="import-hidden-lrc" class="hidden" accept=".lrc">
+                    </span>
                     <ul id="lrc-table"></ul>
                 </div>
             </div>
             <div class="row player-controls">
-                <div class="col-3-lg col-12-lg justify-content-center align-items-end" style="display: flex;">
-                    <button id="player-btn-rewind" class="player-btn"><img id="player-img-rewind" src="imgs/rewind-icon-outline-128x128.png" alt="rew"></button>
-                    <button id="player-btn-play-pause" class="player-btn"><img id="player-img-pp" src="imgs/play-icon-outline-128x128.png" alt="play"></button>
-                    <button id="player-btn-foward" class="player-btn"><img id="player-img-foward" src="imgs/foward-icon-outline-128x128.png" alt="fow"></button>
-                    <button id="player-btn-time">
-                        <span id="player-current-time">--:--.---</span>
-                        <span>/</span>
-                        <span id="player-audio-length">--:--.---</span>
-                    </button>
-                    
+                <div class="col-12-lg justify-content-center align-items-end" style="display: flex;">
+                    <button id="player-btn-rewind" class="player-btn"><img id="player-img-rewind" src="imgs/play-back-outline.svg" alt="rew"></button>
+                    <button id="player-btn-play-pause" class="player-btn"><img id="player-img-pp" src="imgs/play-outline.svg" alt="play"></button>
+                    <button id="player-time-setter">set time</button>
                     <div id="player-audio-controls" class="hide-on-720px">
-                        <button id="pac-phone-btn" class="show-on-720px"><img src="imgs/foward-icon-outline-128x128.png"></button>
-                        <img class="hide-on-720px" src="imgs/foward-icon-outline-128x128.png">
+                        <button id="pac-phone-btn" class="show-on-720px"><img src="imgs/volume-medium-outline.svg"></button>
+                        <img class="hide-on-720px" src="imgs/volume-medium-outline.svg">
                         <div id="player-volume"></div>
                         <input type="range" orient="vertical" id="player-volume-bar" min="0" max="100" value="50">
                     </div>
-                    <button id="player-time-setter">set time</button>
+                    <button id="player-btn-foward" class="player-btn"><img id="player-img-foward" src="imgs/play-forward-outline.svg" alt="fow"></button>
                     <audio id="player-audio"></audio>
                 </div>
-                <div class="col-9-lg">
-                    
+                <div class="col-lg-12 d-flex align-items-center dir-col">
+                    <span class="player-time">
+                        <span id="player-current-time">--:--.---</span>
+                        <span>/</span>
+                        <span id="player-audio-length">--:--.---</span>
+                    </span>
                     <input type="range" orient="horizontal" id="player-progress-bar" min="0" max="0" value="0">
                 </div>
             </div>
@@ -63,12 +70,18 @@
         <div id="window-menu" class="hidden">
             <ul class="window-menu-content">
                 <li>
-                    <button id="wmc-close">close menu</button>
+                    <button id="wmc-close"><img src="imgs/menu-outline.svg" alt="Close"></button>
                 </li>
                 <li class="divider"></li>
                 <li>
                     <button id="wmc-import-audio">Import Audio</button>
                     <input type="text" id="wmc-audio-name">
+                </li>
+                <li class="divider"></li>
+                <li>
+                    <button id="wmc-import-btn-lrc">Import</button>
+                    <button id="wmc-export-btn-lrc">Export</button>
+                    <input type="text" id="input-lrc-name">
                 </li>
                 <li class="divider"></li>
                 <li>

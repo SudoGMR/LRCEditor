@@ -27,10 +27,6 @@ PlayerBtnFoward.addEventListener('click', (e) => {
     PlayerController('foward')
 })
 
-PlayerBtnTime.addEventListener('click', () => {
-    //not implemented yet
-})
-
 PlayerProgressBar.addEventListener('input', () => {
     PlayerCurrentTime.innerHTML = ConvertTime(PlayerAudio.currentTime);
     PlayerController('set', PlayerProgressBar.value);
@@ -67,7 +63,7 @@ function PlayerController(action, time){
         case 'switchplay':
             if(PlayerAudio.paused == true){
                 PlayerAudio.play();
-                PlayerImgPP.src = './imgs/pause-icon-outline-128x128.png';
+                PlayerImgPP.src = './imgs/pause-outline.svg';
                 PlayerImgPP.alt = 'pause';
                 //EditorData[0].playerState = 'playing';
                 PlayerProgressBar.value = PlayerAudio.currentTime * 100;
@@ -77,7 +73,7 @@ function PlayerController(action, time){
             } else
             if(PlayerAudio.paused == false){
                 PlayerAudio.pause();
-                PlayerImgPP.src = './imgs/play-icon-outline-128x128.png';
+                PlayerImgPP.src = './imgs/play-outline.svg';
                 PlayerImgPP.alt = 'play';
                 //EditorData[0].playerState = 'paused';
                 clearInterval(Timer);

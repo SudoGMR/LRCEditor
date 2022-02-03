@@ -21,8 +21,10 @@ const WICCTextArea = document.getElementById('wicc-textarea');
 const WICCContinue = document.getElementById('wicc-continue');
 const WICCCancel = document.getElementById('wicc-cancel');
 const WICC = document.getElementById('window-import-choice');
-const WMCImportAudio = document.getElementById('wmc-import-audio');
 const WMCAudioName = document.getElementById('wmc-audio-name');
+const WMCExportBtnLRC = document.getElementById('wmc-export-btn-lrc');
+const WMCImportAudio = document.getElementById('wmc-import-audio');
+const WMCImportBtnLRC = document.getElementById('wmc-import-btn-lrc');
 //const jsmediatags = window.jsmediatags;
 
 /** Player.js */
@@ -37,7 +39,6 @@ const PlayerImgPP = document.getElementById('player-img-pp');
 const PlayerImgRewind = document.getElementById('player-img-rewind');
 
 const PlayerAudioLength = document.getElementById('player-audio-length');
-const PlayerBtnTime = document.getElementById('player-btn-time');
 const PlayerCurrentTime = document.getElementById('player-current-time');
 
 const PlayerVolume = document.getElementById('player-volume')
@@ -49,10 +50,11 @@ const PlayerAudioControls = document.getElementById('player-audio-controls');
 // - none
 
 /** Table.js */
-// - none
+const DelSpecLineBtn = document.getElementById('del-spec-line-btn');
+const NewLineAbSelBtn = document.getElementById('new-line-ab-sel-btn');
 
 /** TimeSetter.js */
-// - none
+const TimeSetterBtn = document.getElementById('player-time-setter');
 
 /* --- Event listeners --- */
 MenuBtn.addEventListener('click', () => {

@@ -36,7 +36,7 @@ var FileData = [{
 var EditorData = {};
 var EHData = {
     lastSelected: undefined,
-    currentlySelected: undefined,
+    currentlySelected: undefined
 }
 var LRCData = [];
 
