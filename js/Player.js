@@ -94,7 +94,8 @@ function PlayerController(action, time){
 }
 
 /* --- On Load --- */
-PlayerController('pause')
+PlayerController('pause');
+PlayerImgPP.src = './imgs/play-outline.svg';
 PlayerVolumeBar.value = localStorage.volume;
 PlayerVolume.innerHTML = localStorage.volume;
 PlayerAudio.volume = localStorage.volume / 100;

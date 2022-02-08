@@ -23,21 +23,30 @@
                     </a>
                 </div>
                 <div class="col-2 d-flex">
-                    <button class="width-50px" onclick="console.log(FileData, LRCData, EditorData, EHData)"></button>
+                    <button class="width-50px" style="background-color: #c0c0c0;" onclick="console.log(FileData, LRCData, EditorData, EHData)"></button>
                 </div>
             </div>
             <div class="row c-content">
                 <div class="col-3 hide-on-720px">
                     <button id="import-btn-audio">Import Audio</button>
                     <input type="file" id="import-hidden-audio" class="hidden" accept=".mp3, .wav">
-                    <input type="text" id="input-audio-name">
+                    <p id="audio-name">Audio not imported</p>
                 </div>
                 <div class="col-lg-9">
-                    <span class="d-flex dir-row">
-                        <button id="import-btn-lrc" class="hide-on-720px">Import</button>
-                        <button id="export-btn-lrc" class="hide-on-720px">Export</button>
+                    <span class="editor-btns">
+                        <button id="editor-import-btn-audio">
+                            <img src="imgs/musical-notes-outline.svg">
+                        </button>
+                        <button id="import-btn-lrc">
+                            <img src="imgs/document-outline.svg">
+                        </button>
+                        <button id="export-btn-lrc">
+                            <img src="imgs/save-outline.svg">
+                        </button>
                         <button id="new-line-ab-sel-btn">New Line Above Selected</button>
-                        <button id="del-spec-line-btn">Delete Selected Line</button>
+                        <button id="del-spec-line-btn">
+                            <img src="imgs/trash-outline.svg">
+                        </button>
                         <input type="file" id="import-hidden-lrc" class="hidden" accept=".lrc">
                     </span>
                     <ul id="lrc-table"></ul>
@@ -47,9 +56,9 @@
                 <div class="col-12-lg justify-content-center align-items-end" style="display: flex;">
                     <button id="player-btn-rewind" class="player-btn"><img id="player-img-rewind" src="imgs/play-back-outline.svg" alt="rew"></button>
                     <button id="player-btn-play-pause" class="player-btn"><img id="player-img-pp" src="imgs/play-outline.svg" alt="play"></button>
-                    <button id="player-time-setter">set time</button>
+                    <button id="player-time-setter" class="player-btn"><img src="imgs/ellipse-outline.svg" alt="Add Time"></button>
                     <div id="player-audio-controls" class="hide-on-720px">
-                        <button id="pac-phone-btn" class="show-on-720px"><img src="imgs/volume-medium-outline.svg"></button>
+                        <button id="pac-phone-btn" class="player-btn show-on-720px"><img src="imgs/volume-medium-outline.svg"></button>
                         <img class="hide-on-720px" src="imgs/volume-medium-outline.svg">
                         <div id="player-volume"></div>
                         <input type="range" orient="vertical" id="player-volume-bar" min="0" max="100" value="50">
@@ -70,12 +79,14 @@
         <div id="window-menu" class="hidden">
             <ul class="window-menu-content">
                 <li>
-                    <button id="wmc-close"><img src="imgs/menu-outline.svg" alt="Close"></button>
+                    <button id="wmc-close">
+                        <img src="imgs/menu-outline.svg" alt="Close">
+                    </button>
                 </li>
                 <li class="divider"></li>
                 <li>
                     <button id="wmc-import-audio">Import Audio</button>
-                    <input type="text" id="wmc-audio-name">
+                    <p type="text" id="wmc-audio-name">Audio not imported</p>
                 </li>
                 <li class="divider"></li>
                 <li>

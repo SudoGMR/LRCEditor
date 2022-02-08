@@ -1,4 +1,7 @@
 /* --- Event Listeners --- */
+EditorImportBtnAudio.onclick = () => {
+    ImportHiddenAudio.click();
+}
 ExportBtnLRC.onclick = function(){
     FileExporter('lrc');
 }
@@ -19,13 +22,13 @@ ImportHiddenAudio.onchange = function(){
 ImportHiddenLRC.onchange = function(){
     FileImporter('lrc', this.files[0]);
 }
-
+/*
 InputAudioName.onchange = function(){
     WMCAudioName.value = InputAudioName.value;
     FileData[0].name = InputAudioName.value;
     FileData[1].name = InputAudioName.value;
 }
-
+*/
 WICCCancel.onclick = function(){
     WICC.setAttribute('class', 'hidden');
 }
@@ -43,19 +46,19 @@ WICCContinue.onclick = function(){
 WMCImportAudio.onclick = function(){
     ImportBtnAudio.click();
 }
-
+/*
 WMCAudioName.onchange = function(){
     InputAudioName.value = WMCAudioName.value;
     FileData[0].name = WMCAudioName.value;
     FileData[1].name = WMCAudioName.value;
 }
-
+*/
 WMCExportBtnLRC.onclick = function(){
     FileExporter('lrc');
 }
 
 WMCImportBtnLRC.onclick = function(){
-    ImportBtnLRC.click();
+    ImportHiddenLRC.click();
 }
 
 /* --- Functions --- */
@@ -87,8 +90,8 @@ function FileExporter(type){
 function FileImporter(type, file){
     if(type == 'audio'){
         SetArrayData(FileData, file);
-        InputAudioName.value = FileData[0].name;
-        WMCAudioName.value = FileData[0].name;
+        AudioName.innerHTML = FileData[0].name;
+        WMCAudioName.innerHTML = FileData[0].name;
         InputLRCName.value = FileData[0].name;
         InputLRCName.disabled = true;
         FileData[1].name = FileData[0].name;

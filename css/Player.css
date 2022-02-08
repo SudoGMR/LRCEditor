@@ -8,6 +8,11 @@
     display: flex;
 }
 
+.player-controls button{
+    border: none;
+    background-color: inherit;
+}
+
 .player-controls span{
     height: 25px;
     display: flex;
@@ -36,6 +41,10 @@
     .player-controls{
         flex-direction: column;
         height: 22vh;
+    }
+
+    .player-controls button{
+        margin: 10px !important;
     }
 
     #player-audio-controls{

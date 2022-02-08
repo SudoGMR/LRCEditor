@@ -1,6 +1,6 @@
 /* --- GLOBAL DEFCLARATORS --- */
 /** main.js */
-const InputAudioName = document.getElementById('input-audio-name');
+const AudioName = document.getElementById('audio-name');
 const InputLRCName = document.getElementById('input-lrc-name');
 const MenuBtn = document.getElementById('menu-btn');
 const WindowMenu = document.getElementById('window-menu');
@@ -10,6 +10,7 @@ const WMCClose = document.getElementById('wmc-close');
 const PlayerAudio = document.getElementById('player-audio');
 
 /** FileManager.js */
+const EditorImportBtnAudio = document.getElementById('editor-import-btn-audio');
 const ExportBtnLRC = document.getElementById('export-btn-lrc');
 const ImportBtnAudio = document.getElementById('import-btn-audio');
 const ImportBtnLRC = document.getElementById('import-btn-lrc');

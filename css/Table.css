@@ -2,6 +2,23 @@
     overflow-y: scroll;
 }
 
+.editor-btns{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.editor-btns button{
+    border: none;
+    background-color: inherit;
+}
+
+.editor-btns button img{
+    height: 50px;
+    width: 50px;
+    padding: 5px !important
+}
+
 #lrc-table li{
     display: flex;
     flex-direction: row;
