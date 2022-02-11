@@ -14,12 +14,30 @@
 body{
     height: 100vh;
 }
-/*
-button{
-    background-color: inherit;
-    border:none;
+
+.c-content > .col-3{
+    padding: 10px !important;
 }
-*/
+
+.c-content > .col-3 button{
+    display: flex;
+    width: 100%;
+    flex-direction: row;
+    align-items: center;
+}
+
+.c-content > .col-3 button > img{
+    height: var(--player-btn-size);
+    width: var(--player-btn-size);
+}
+
+.c-content > .col-3 button > p{
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    width: 100%;
+}
+
 .dir-col{
     flex-direction: column;
 }

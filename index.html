@@ -28,9 +28,18 @@
             </div>
             <div class="row c-content">
                 <div class="col-3 hide-on-720px">
-                    <button id="import-btn-audio">Import Audio</button>
+                    <ul>
+                        <li>
+                            <button id="import-btn-audio">
+                                <img src="imgs/folder-open-with-musical-notes-outline.svg">
+                                <p>Open audio</p>
+                            </button>
+                            <p id="audio-name">No audio</p>
+                        </li>
+                    </ul>
+                    
                     <input type="file" id="import-hidden-audio" class="hidden" accept=".mp3, .wav">
-                    <p id="audio-name">Audio not imported</p>
+                    
                 </div>
                 <div class="col-lg-9">
                     <span class="editor-btns">
