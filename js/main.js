@@ -44,6 +44,8 @@ const PlayerCurrentTime = document.getElementById('player-current-time');
 
 const PlayerVolume = document.getElementById('player-volume')
 const PlayerVolumeBar = document.getElementById('player-volume-bar');
+const PlayerVolumeImg = document.getElementById('player-volume-img');
+const PlayerPhoneVolumeImg = document.getElementById('player-phone-volume-img');
 const PACPhoneBtn = document.getElementById('pac-phone-btn');
 const PlayerAudioControls = document.getElementById('player-audio-controls');
 

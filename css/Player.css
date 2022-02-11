@@ -12,13 +12,13 @@
     border: none;
     background-color: inherit;
 }
-
-.player-controls span{
+/*
+.player-controls div{
     height: 25px;
     display: flex;
     align-items: center;
 }
-
+*/
 #player-progress-bar{
     width: 100%;
 }
@@ -40,11 +40,8 @@
 
     .player-controls{
         flex-direction: column;
+        /*justify-content: space-around;*/
         height: 22vh;
-    }
-
-    .player-controls button{
-        margin: 10px !important;
     }
 
     #player-audio-controls{

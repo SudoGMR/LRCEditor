@@ -1,0 +1,17 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg" class="ionicon">
+ <title>New Line</title>
+ <g id="Layer_1">
+  <title>Layer 1</title>
+  <rect id="svg_20" height="0.4566" width="0" y="217.49323" x="99.69067" stroke-width="30" stroke="#ffffff" fill="#ffffff"/>
+  <line id="svg_28" y2="139" x2="354" y1="138.74482" x1="174" stroke-width="79" stroke="#000000" fill="none"/>
+  <line id="svg_29" y2="230" x2="263.90152" y1="50" x1="264" stroke-width="80" stroke="#000000" fill="none"/>
+  <line id="svg_32" y2="139" x2="334" y1="138.28058" x1="194" stroke-width="40" stroke="#00ff00" fill="none"/>
+  <line id="svg_33" y2="210" x2="264.06392" y1="70" x1="264" stroke-width="40" stroke="#00ff00" fill="none"/>
+  <g id="svg_35">
+   <rect rx="10" id="svg_10" height="153" width="432" y="280.95903" x="39.54339" stroke-width="30" stroke="#000000" fill="#000000"/>
+   <rect id="svg_24" height="25" width="385.3696" y="305.50243" x="63.4566" stroke-width="30" stroke="#00ff00" fill="#ffffff"/>
+   <rect id="svg_25" height="25" width="385.3696" y="383.58087" x="63" stroke-width="30" stroke="#ffffff" fill="#ffffff"/>
+   <line id="svg_26" y2="440.62692" x2="161.33155" y1="278.07766" x1="161.33155" stroke-width="25" stroke="#000000" fill="none"/>
+  </g>
+ </g>
+</svg>

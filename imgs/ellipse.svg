@@ -1,0 +1,9 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg" class="ionicon">
+ <title>Ellipse</title>
+
+ <g>
+  <title>Layer 1</title>
+  <circle id="svg_1" stroke-width="32" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="none" r="192" cy="256" cx="256"/>
+  <circle id="svg_4" stroke-width="32" stroke-linejoin="round" stroke-linecap="round" stroke="#7f0000" fill="#ff0000" r="130" cy="256" cx="256"/>
+ </g>
+</svg>

@@ -1,0 +1,12 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg" class="ionicon">
+ <title>delete-line-</title>
+ <g id="Layer_1">
+  <title>Layer 1</title>
+  <rect id="svg_20" height="0.4566" width="0" y="217.49323" x="99.69067" stroke-width="30" stroke="#ffffff" fill="#ffffff"/>
+  <line id="svg_28" y2="151.23022" x2="354" y1="150.97503" x1="174" stroke-width="79" stroke="#000000" fill="none"/>
+  <line id="svg_32" y2="151.23022" x2="334" y1="150.51079" x1="194" stroke-width="40" stroke="#ff5656" fill="none"/>
+  <rect rx="10" id="svg_10" height="75" width="432" y="293.18925" x="39.54339" stroke-width="30" stroke="#000000" fill="#000000"/>
+  <rect id="svg_24" height="25" width="385.3696" y="317.73265" x="63.4566" stroke-width="30" stroke="#ff5656" fill="#ffffff"/>
+  <line id="svg_26" y2="369.40388" x2="161.33155" y1="290.30788" x1="161.33155" stroke-width="25" stroke="#000000" fill="none"/>
+ </g>
+</svg>

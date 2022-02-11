@@ -1,0 +1,14 @@
+<svg width="512" height="512" xmlns="http://www.w3.org/2000/svg" class="ionicon">
+ <title>Folder Open</title>
+
+ <g>
+  <title>Layer 1</title>
+  <path id="svg_1" stroke-width="32" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="none" d="m64,192l0,-72a40,40 0 0 1 40,-40l75.89,0a40,40 0 0 1 22.19,6.72l27.84,18.56a40,40 0 0 0 22.19,6.72l155.89,0a40,40 0 0 1 40,40l0,40"/>
+  <path id="svg_2" stroke-width="32" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="none" d="m479.9,226.55l-16.22,165.45a40,40 0 0 1 -39.93,40l-335.5,0a40,40 0 0 1 -39.93,-40l-16.22,-165.45a32,32 0 0 1 31.9,-34.55l384.1,0a32,32 0 0 1 31.8,34.55z"/>
+  <g>
+   <title>Musical Notes</title>
+   <path stroke-width="32" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="none" d="m231.2,298.45884l0,-2.13483c0,-5.28016 3.875,-9.60675 9.393,-10.8841l67.65362,-16.60901a7.75,7.11611 0 0 1 9.75337,6.85638l0,7.82773"/>
+   <path stroke-width="32" stroke-linejoin="round" stroke-linecap="round" stroke="currentColor" fill="none" d="m318,326.19034l0,28.46446c0,4.94926 -3.46037,9.10507 -8.525,10.67417l-8.525,2.84645c-10.03625,3.10263 -20.15,-3.7075 -20.15,-13.52062l0,0a12.93087,11.87324 0 0 1 8.9125,-11.38578l19.7625,-6.45787c5.06462,-1.56555 8.525,-5.67154 8.525,-10.6208l0,-84.66041a3.875,3.55806 0 0 0 -4.8825,-3.41929l-77.2675,19.07474a6.386,5.86368 0 0 0 -4.65,5.69289l0,80.41209c0,4.94926 -3.46037,9.10863 -8.525,10.67417l-20.15,6.4045c-5.3785,1.66517 -8.525,6.12697 -8.525,11.38578l0,0c0,9.81312 10.2765,16.56276 20.15,13.52062l8.525,-2.84645c5.06462,-1.56555 8.525,-5.72136 8.525,-10.67417l0,-28.46446"/>
+  </g>
+ </g>
+</svg>

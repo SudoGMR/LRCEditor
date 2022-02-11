@@ -16,7 +16,8 @@ input[type=range][orient=horizontal]::-moz-range-track{
     width: calc(100% + 2px - (var(--player-progress-bar-thumb-width) / 2));
     height: 8px;
     cursor: pointer;
-    box-shadow: 0.5px 0.5px 0.5px #000000;
+    /*box-shadow: 0.5px 0.5px 0.5px #000000;*/
+    box-shadow: none;
     background: #e2e2e2;
     border-radius: 2px;
     border: 0.5px solid #010101;
@@ -30,7 +31,8 @@ input[type=range][orient=horizontal]::-webkit-slider-thumb{
     width: var(--player-progress-bar-thumb-width);
     border-bottom-left-radius: calc(var(--player-progress-bar-thumb-width) / 2);
     border-bottom-right-radius: calc(var(--player-progress-bar-thumb-width) / 2);
-    box-shadow: 1px 1px 1px #000000, 0px 0px 0px #0d0d0d;
+    /*box-shadow: 1px 1px 1px #000000, 0px 0px 0px #0d0d0d;*/
+    box-shadow: none;
 }
 
 input[type=range][orient=horizontal]::-moz-range-thumb{
@@ -40,8 +42,8 @@ input[type=range][orient=horizontal]::-moz-range-thumb{
     width: var(--player-progress-bar-thumb-width);
     border-bottom-left-radius: calc(var(--player-progress-bar-thumb-width) / 2);
     border-bottom-right-radius: calc(var(--player-progress-bar-thumb-width) / 2);
-    box-shadow: 1px 1px 1px #000000, 0px 0px 0px #0d0d0d;
-    
+    /*box-shadow: 1px 1px 1px #000000, 0px 0px 0px #0d0d0d;*/
+    box-shadow: none;
 }
 
 input[type=range][orient=horizontal]::-ms-thumb{
@@ -51,7 +53,8 @@ input[type=range][orient=horizontal]::-ms-thumb{
     width: var(--player-progress-bar-thumb-width);
     border-bottom-left-radius: calc(var(--player-progress-bar-thumb-width) / 2);
     border-bottom-right-radius: calc(var(--player-progress-bar-thumb-width) / 2);
-    box-shadow: 1px 1px 1px #000000, 0px 0px 0px #0d0d0d;
+    /*box-shadow: 1px 1px 1px #000000, 0px 0px 0px #0d0d0d;*/
+    box-shadow: none;
 }
 
 /* --- Vertical Slider --- */
@@ -68,7 +71,8 @@ input[type=range][orient=vertical]::-moz-range-track{
     height: calc(100% + 2px - (var(--player-progress-bar-thumb-width) / 2));
     width: 8px;
     cursor: pointer;
-    box-shadow: 0.5px 0.5px 0.5px #000000;
+    /*box-shadow: 0.5px 0.5px 0.5px #000000;*/
+    box-shadow: none;
     background: #e2e2e2;
     border-radius: 2px;
     border: 0.5px solid #010101;
@@ -83,7 +87,8 @@ input[type=range][orient=vertical]::-webkit-slider-thumb{
     width: var(--player-progress-bar-thumb-width);
     border-top-right-radius: calc(var(--player-progress-bar-thumb-width) / 2);
     border-bottom-right-radius: calc(var(--player-progress-bar-thumb-width) / 2);
-    box-shadow: 1px 1px 1px #000000, 0px 0px 0px #0d0d0d;
+    /*box-shadow: 1px 1px 1px #000000, 0px 0px 0px #0d0d0d;*/
+    box-shadow: none;
 }
 
 input[type=range][orient=vertical]::-moz-range-thumb{
@@ -93,7 +98,8 @@ input[type=range][orient=vertical]::-moz-range-thumb{
     width: var(--player-progress-bar-thumb-height);
     border-top-right-radius: calc(var(--player-progress-bar-thumb-width) / 2);
     border-bottom-right-radius: calc(var(--player-progress-bar-thumb-width) / 2);
-    box-shadow: 1px 1px 1px #000000, 0px 0px 0px #0d0d0d;
+    /*box-shadow: 1px 1px 1px #000000, 0px 0px 0px #0d0d0d;*/
+    box-shadow: none;
     
 }
 
@@ -104,5 +110,6 @@ input[type=range][orient=vertical]::-ms-thumb{
     width: var(--player-progress-bar-thumb-width);
     border-top-right-radius: calc(var(--player-progress-bar-thumb-width) / 2);
     border-bottom-right-radius: calc(var(--player-progress-bar-thumb-width) / 2);
-    box-shadow: 1px 1px 1px #000000, 0px 0px 0px #0d0d0d;
+    /*box-shadow: 1px 1px 1px #000000, 0px 0px 0px #0d0d0d;*/
+    box-shadow: none;
 }

@@ -34,18 +34,20 @@
                 </div>
                 <div class="col-lg-9">
                     <span class="editor-btns">
-                        <button id="editor-import-btn-audio">
-                            <img src="imgs/musical-notes-outline.svg">
+                        <button title="Open audio" id="editor-import-btn-audio">
+                            <img src="imgs/folder-open-with-musical-notes-outline.svg">
                         </button>
-                        <button id="import-btn-lrc">
-                            <img src="imgs/document-outline.svg">
+                        <button title="Open lyrics" id="import-btn-lrc">
+                            <img src="imgs/folder-open-with-lrc-outline.svg">
                         </button>
-                        <button id="export-btn-lrc">
+                        <button title="Save lyrics" id="export-btn-lrc">
                             <img src="imgs/save-outline.svg">
                         </button>
-                        <button id="new-line-ab-sel-btn">New Line Above Selected</button>
-                        <button id="del-spec-line-btn">
-                            <img src="imgs/trash-outline.svg">
+                        <button title="New Line Above Selected Line" id="new-line-ab-sel-btn">
+                            <img src="imgs/new-line.svg">
+                        </button>
+                        <button title="Delete Selected Line" id="del-spec-line-btn">
+                            <img src="imgs/delete-line.svg">
                         </button>
                         <input type="file" id="import-hidden-lrc" class="hidden" accept=".lrc">
                     </span>
@@ -53,13 +55,13 @@
                 </div>
             </div>
             <div class="row player-controls">
-                <div class="col-12-lg justify-content-center align-items-end" style="display: flex;">
+                <div class="col-12-lg justify-content-lg-center justify-content-evenly align-items-end" style="display: flex;">
                     <button id="player-btn-rewind" class="player-btn"><img id="player-img-rewind" src="imgs/play-back-outline.svg" alt="rew"></button>
                     <button id="player-btn-play-pause" class="player-btn"><img id="player-img-pp" src="imgs/play-outline.svg" alt="play"></button>
-                    <button id="player-time-setter" class="player-btn"><img src="imgs/ellipse-outline.svg" alt="Add Time"></button>
+                    <button id="player-time-setter" class="player-btn"><img src="imgs/ellipse.svg" alt="Add Time"></button>
                     <div id="player-audio-controls" class="hide-on-720px">
-                        <button id="pac-phone-btn" class="player-btn show-on-720px"><img src="imgs/volume-medium-outline.svg"></button>
-                        <img class="hide-on-720px" src="imgs/volume-medium-outline.svg">
+                        <button id="pac-phone-btn" class="player-btn show-on-720px"><img id="player-phone-volume-img" src="imgs/volume-medium-outline.svg"></button>
+                        <img id="player-volume-img" class="hide-on-720px" src="imgs/volume-medium-outline.svg">
                         <div id="player-volume"></div>
                         <input type="range" orient="vertical" id="player-volume-bar" min="0" max="100" value="50">
                     </div>
@@ -85,20 +87,31 @@
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <button id="wmc-import-audio">Import Audio</button>
-                    <p type="text" id="wmc-audio-name">Audio not imported</p>
+                    <h5 type="text" id="wmc-audio-name">No Audio</h5>
+                    <button id="wmc-import-audio">
+                        <img src="imgs/folder-open-with-musical-notes-outline.svg">
+                        <p>Import Audio</p>
+                    </button>
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <button id="wmc-import-btn-lrc">Import</button>
-                    <button id="wmc-export-btn-lrc">Export</button>
+                    <button id="wmc-import-btn-lrc">
+                        <img src="imgs/folder-open-with-lrc-outline.svg">
+                        <p>Open Lyrics</p>
+                    </button>
+                    <button id="wmc-export-btn-lrc">
+                        <img src="imgs/save-outline.svg">
+                        <p>Save</p>
+                    </button>
                     <input type="text" id="input-lrc-name">
                 </li>
+                <!--
                 <li class="divider"></li>
                 <li>
                     <img>
                     <button>settings</button>
                 </li>
+            -->
             </ul>
         </div>
         <div id="window-import-choice" class="hidden">
