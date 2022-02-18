@@ -7,9 +7,6 @@ document.addEventListener('keydown', (e) => {
                 SetTableTime();
             }
         }
-        if(e.key == "l"){
-            SetTableTime();
-        }
     }
 })
 

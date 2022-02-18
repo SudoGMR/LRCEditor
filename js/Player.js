@@ -94,7 +94,6 @@ function PlayerController(action, time){
 }
 
 function SetVolume(volume){
-    console.log(volume);
     PlayerVolume.innerHTML = volume;
     PlayerAudio.volume = volume / 100;
     localStorage.volume = volume;

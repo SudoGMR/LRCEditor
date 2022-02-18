@@ -4,34 +4,35 @@ document.addEventListener('click', (e) => {
     let currentlySelected = EHData.currentlySelected;
 
     if(e.target.getAttribute('id') != null){
-        if(e.target.getAttribute('id').substring(0, 9) == 't-time-p-' || e.target.getAttribute('id').substring(0, 9) == 't-data-p-'){
-            if(lastSelected == undefined){
+        if(lastSelected == undefined){
+            if(e.target.getAttribute('id').substring(0, 9) == 't-time-p-' || e.target.getAttribute('id').substring(0, 9) == 't-data-p-'){
                 SelectLine(e.target);
             }
-            /*
-            console.log(currentlySelected);
-            console.log(lastSelected);
-            */
+
+            if(e.target == LRCName){
+                EHData.lastSelected = EHData.currentlySelected;
+                EHData.currentlySelected = e.target;
+            }
         }
         if(e.target.getAttribute('id') == 'window-import-choice'){}
     }
 
     if(lastSelected != undefined){
-        
-        //let currentlySelected = document.getElementById('t-' + lastSelected.getAttribute('id').substring(2, 6) + '-input-' + lastSelected.getAttribute('id').substring(9));
         if(e.target != currentlySelected){
-            SaveLineData(currentlySelected, lastSelected);
-        }
+            if(currentlySelected == LRCName){
+                FileData[1].name = LRCName.value;
+                EHData.currentlySelected = EHData.lastSelected;
+                EHData.lastSelected = undefined;
+            } else {
+                SaveLineData(currentlySelected, lastSelected);
+            }
+        }        
     }
 
     if(e.target == WindowMenu){
         WindowMenu.setAttribute('class', 'hidden');
     }
 });
-
-DelSpecLineBtn.onclick = () => {DelSelectedLine()};
-
-NewLineAbSelBtn.onclick = () => {NewLineAbSel()};
 
 document.addEventListener('dblclick', (e) => {
     if(e.target.getAttribute('id').substring(0, 9) == 't-time-p-' || e.target.getAttribute('id').substring(0, 9) == 't-data-p-'){
@@ -41,71 +42,91 @@ document.addEventListener('dblclick', (e) => {
 
 document.addEventListener('keydown', (e) => {
 
-    if(WICC.getAttribute('class') == 'hidden'){
+    let lastSelected = EHData.lastSelected;
+    let currentlySelected = EHData.currentlySelected;
 
-        if(["Space","ArrowUp","ArrowDown"].indexOf(e.code) > -1) {
-            e.preventDefault();
-        }
-
-        let lastSelected = EHData.lastSelected;
-        let currentlySelected = EHData.currentlySelected;
-
+    if(["ArrowUp","ArrowDown"].indexOf(e.code) > -1) {
+        e.preventDefault();
+    }
+    if(currentlySelected.getAttribute('id').substring(6, 13) == '-input-'){
         if(!e.repeat){
-            if(e.key == 'Enter'){
-               // if()
-                if(currentlySelected.getAttribute('id').substring(7, 8) != 'p'){
-                    SaveLineData(currentlySelected, lastSelected);
-                } else {
-                    EditLineData(currentlySelected);
-                }
+            if(e.key == 'Enter' || e.keyCode == 113){
+                SaveLineData(currentlySelected, lastSelected);
             }
-            if(e.key == 'k'){
-                console.log(EditorData);
-            }
-            if(e.key == 'j'){
-                console.log('calling');
-                DelSelectedLine()
-            }
-        }
-        
-        if(e.key == 'ArrowUp'){
-            let selectedId = currentlySelected.getAttribute('id').substring(0, 9);
-            let nextLineNum = parseInt(currentlySelected.getAttribute('id').substring(9)) - parseInt(1);
-            if(nextLineNum != -1){
-                let nextLine = document.getElementById(selectedId + nextLineNum);
-                SelectLine(nextLine);
-                //console.log(isScrolledIntoView(nextLine));
-            }
-        }
-        if(e.key == 'ArrowDown'){
-            let selectedId = currentlySelected.getAttribute('id').substring(0, 9);
-            let nextLineNum = parseInt(currentlySelected.getAttribute('id').substring(9)) + parseInt(1);
-            if(nextLineNum != LRCData.length){
-                let nextLine = document.getElementById(selectedId + nextLineNum);
-                SelectLine(nextLine);
-                //console.log(isScrolledIntoView(nextLine));
-            }
-        }
-        if(PlayerAudio.paused){
-            if(e.key == 'ArrowLeft'){
-                SelectLine(document.getElementById('t-time-p-' + currentlySelected.getAttribute('id').substring(9)));
-            }
-            if(e.key == 'ArrowRight'){
-                SelectLine(document.getElementById('t-data-p-' + currentlySelected.getAttribute('id').substring(9)));
-            }
-        } else {
-            if(e.key == 'ArrowLeft'){
-                PlayerController('rewind');
-            }
-            if(e.key == 'ArrowRight'){
-                PlayerController('foward');
+            if(e.key == 'Escape'){
+                CancelLineAction(currentlySelected, lastSelected);
             }
         }
     }
-    
+    if(currentlySelected.getAttribute('id').substring(6, 9) == '-p-'){
+        if(WICC.getAttribute('class') == 'hidden'){
+            if(!e.repeat){
+                if(e.key == 'Enter' ){
+                    EditLineData(currentlySelected);
+                }
+                if(e.key == 'k'){
+                    console.log(EditorData);
+                }
+                if(e.key == 'j'){
+                    console.log('calling');
+                    DelSelectedLine()
+                }
+            }
+            if(e.key == 'ArrowUp'){
+                let selectedId = currentlySelected.getAttribute('id').substring(0, 9);
+                let nextLineNum = parseInt(currentlySelected.getAttribute('id').substring(9)) - parseInt(1);
+                if(nextLineNum != -1){
+                    let nextLine = document.getElementById(selectedId + nextLineNum);
+                    SelectLine(nextLine);
+                    //console.log(isScrolledIntoView(nextLine));
+                }
+            }
+            if(e.key == 'ArrowDown'){
+                let selectedId = currentlySelected.getAttribute('id').substring(0, 9);
+                let nextLineNum = parseInt(currentlySelected.getAttribute('id').substring(9)) + parseInt(1);
+                if(nextLineNum != LRCData.length){
+                    let nextLine = document.getElementById(selectedId + nextLineNum);
+                    SelectLine(nextLine);
+                    //console.log(isScrolledIntoView(nextLine));
+                }
+            }
+            if(PlayerAudio.paused){
+                if(e.key == 'ArrowLeft'){
+                    SelectLine(document.getElementById('t-time-p-' + currentlySelected.getAttribute('id').substring(9)));
+                }
+                if(e.key == 'ArrowRight'){
+                    SelectLine(document.getElementById('t-data-p-' + currentlySelected.getAttribute('id').substring(9)));
+                }
+            } else {
+                if(e.key == 'ArrowLeft'){
+                    PlayerController('rewind');
+                }
+                if(e.key == 'ArrowRight'){
+                    PlayerController('foward');
+                }
+            }
+        }
+    }
 })
 
+EditorDelSpecLineBtn.onclick = () => {DelSelectedLine()}
+EditorNewLineAbSelBtn.onclick = () => {NewLineAbSel()}
+
+DelSpecLineBtn.onclick = () => {DelSelectedLine()};
+NewLineAbSelBtn.onclick = () => {NewLineAbSel()};
+
 /* --- Functions --- */
+function CancelLineAction(cS, lS){
+    lS.blur();
+    cS.value = lS.innerHTML;
+
+    cS.setAttribute('class', 'table-input hidden');
+    lS.setAttribute('class', 'table-p selected');
+
+    EHData.currentlySelected = EHData.lastSelected;
+    EHData.lastSelected = undefined;
+}
+
 function DelLine(){
     for(let i = LRCData.length - 1; i > 0; i--){
         if(LRCData[i].isUsed == false && LRCData[i - 1].isUsed == false){
@@ -158,18 +179,24 @@ function EditLineData(e){
         }
     }
 }
-/* // - mot implemented yet
-function isScrolledIntoView(e){
+
+// - not implemented yet
+function ScrollIntoView(e){
     let rect = e.getBoundingClientRect();
     let eTop = rect.top;
     let eBottom = rect.bottom;
 
-    if(eTop >= 0 && eBottom <= window.innerHeight)
-        return true;
-    else
-        return false;
+    if(eTop < 0)
+        //return 1;
+        console.log('Top >= 0');
+
+    if(eBottom > window.innerHeight)
+        //return 2
+        console.log('Bottom <= 0');
+
+    //return 0;
 }
-*/
+
 function NewLine(){
     let line;
 
@@ -204,21 +231,17 @@ function NewLine(){
     document.getElementById(TData).innerHTML = '';
 }
 
-function NewLineAbSel(){
+function NewLineAbSel(){    
     NewLine();
+    let lineNum = EHData.currentlySelected.getAttribute('id').substring(9);
+    LRCData.pop();
+    LRCData.splice(lineNum, 0, {isUsed: false, lineTime: '', lineTimeEx: 0, lineData: ''});
 
-    let e = EHData.currentlySelected.getAttribute('id').substring(9);
-    LRCData.splice(e, 0, {isUsed: false, lineTime: '', lineTimeEx: 0, lineData: ''});
-
-    for(let i = LRCData.length - 2; i > parseInt(e) + parseInt(1); i--){
+    for(let i = LRCData.length - 2; i > parseInt(lineNum) - parseInt(1); i--){
         document.getElementById('t-time-p-' + i).innerHTML = LRCData[i].lineTime;
         document.getElementById('t-data-p-' + i).innerHTML = LRCData[i].lineData;
-    }
-
-    document.getElementById('t-time-p-' + e).innerHTML = '';
-    document.getElementById('t-data-p-' + e).innerHTML = '';
-
-    NewLine();
+    }  
+    
 }
 
 function SaveLineData(cS, lS){
@@ -227,6 +250,7 @@ function SaveLineData(cS, lS){
 
     cS.setAttribute('class', 'table-input hidden');
     lS.setAttribute('class', 'table-p selected');
+    EHData.currentlySelected = EHData.lastSelected;
     EHData.lastSelected = undefined;
 
     if(cS.getAttribute('id').substring(2, 6) == 'time'){
@@ -247,6 +271,13 @@ function SelectLine(cS){
             attrs[i].setAttribute('class', 'table-p');
         }
     }
+    ScrollIntoView(cS);
+    /*
+    if(cS.getAttribute('id').substring(9) > LRCData.length - 1){
+        console.log('aaaaaa');
+        cS = document.getElementById('t-' + cS.getAttribute('id').substring(2, 5) + '-p-' + LRCData.length-1);    
+    }
+    */
     cS.setAttribute('class', 'table-p selected');
     EHData.currentlySelected = cS;
 }
@@ -265,6 +296,7 @@ function TableController(line){
                 DelLine();
         }
     }
+    DelLine();
 }
 
 /* --- / --- */

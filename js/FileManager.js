@@ -1,7 +1,16 @@
 /* --- Event Listeners --- */
+EditorExportBtnLrc.onclick = () => {
+    FileExporter('lrc');
+}
+
+EditorImportBtnLrc.onclick = () => {
+    WICC.setAttribute('class', '');
+}
+
 EditorImportBtnAudio.onclick = () => {
     ImportHiddenAudio.click();
 }
+
 ExportBtnLRC.onclick = function(){
     FileExporter('lrc');
 }
@@ -21,6 +30,17 @@ ImportHiddenAudio.onchange = function(){
 
 ImportHiddenLRC.onchange = function(){
     FileImporter('lrc', this.files[0]);
+}
+
+InputLRCName.onchange = () => {
+    FileData[1].name = InputLRCName;
+}
+
+LRCName.onchange = () => {
+    FileData[1].name = InputLRCName;
+    EHData.currentlySelected = EHData.lastSelected;
+    EHData.lastSelected = undefined;
+    LRCName.blur();
 }
 
 WICCCancel.onclick = function(){
@@ -82,6 +102,8 @@ function FileImporter(type, file){
         WMCAudioName.innerHTML = FileData[0].name;
         InputLRCName.value = FileData[0].name;
         InputLRCName.disabled = true;
+        LRCName.value = FileData[0].name;
+        LRCName.disabled = true;
         FileData[1].name = FileData[0].name;
         PlayerAudio.src = URL.createObjectURL(file);
 
@@ -100,6 +122,7 @@ function FileImporter(type, file){
         SetArrayData(FileData, file);
         if(FileData[0] != undefined){
             InputLRCName.value = FileData[1].name;
+            LRCName.value = FileData[1].name;
         }
 
         let Reader = new FileReader();

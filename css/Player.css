@@ -77,6 +77,10 @@
     #player-audio-controls > *{
         display: none;
     }
+
+    #player-audio-controls > img{
+        display: block;
+    }
     
     #player-audio-controls > button{
         display: block;

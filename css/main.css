@@ -1,7 +1,9 @@
 :root{
+    --menu-img-size: 40px;
     --player-btn-size: 50px;
     --player-progress-bar-thumb-height: 20px;
     --player-progress-bar-thumb-width: 10px;
+    --sidebar-img-size: 40px;
 }
 
 /* --- */
@@ -25,15 +27,17 @@ body{
     width: 100%;
     flex-direction: row;
     align-items: center;
+    background-color: transparent;
+    border-radius: 5px;
 }
 
 .c-content > .col-3 button > img{
-    height: var(--player-btn-size);
-    width: var(--player-btn-size);
+    height: var(--sidebar-img-size);
+    width: var(--sidebar-img-size);
 }
 
 .c-content > .col-3 button > p{
-    display: flex;
+    display: grid;
     justify-self: center;
     align-self: center;
     width: 100%;
@@ -114,7 +118,7 @@ li.divider{
         display: block;
     }
     .show-on-720px{
-        display: block;
+        display: flex;
     }
     #window-import-choice{
         position: fixed;
@@ -155,8 +159,8 @@ li.divider{
         padding-bottom: 10px !important;
     }
     .window-menu-content button > img{
-        height: var(--player-btn-size);
-        width: var(--player-btn-size);
+        height: var(--menu-img-size);
+        width: var(--menu-img-size);
     }
     .window-menu-content p{
         margin-left: 10px;
@@ -192,7 +196,7 @@ li.divider{
         height: var(--player-btn-size);
         width: var(--player-btn-size);
         border: none;
-        background-color: inherit;
+        background-color: transparent;
     }
 }
 
@@ -207,7 +211,7 @@ li.divider{
         display: block;
     }
     .show-on-720px{
-        display: none;
+        display: none !important;
     }
     .c-content{
         height: 80vh;

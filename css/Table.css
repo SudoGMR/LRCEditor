@@ -19,6 +19,11 @@
     padding: 5px !important
 }
 
+#lrc-table{
+    overflow-x: none;
+    overflow-y: scroll;
+}
+
 #lrc-table li{
     display: flex;
     flex-direction: row;
@@ -53,6 +58,7 @@
 
 ul{
     list-style: none;
+    height: 93%;
 }
 
 @media screen and (max-width: 720px) {
@@ -82,8 +88,6 @@ ul{
     #lrc-table{
         width: 100vw;
         height: 93%;
-        overflow-x: none;
-        overflow-y: scroll;
         padding: 5px !important;
     }
     /*
@@ -115,6 +119,10 @@ ul{
 
     .c-content .col-lg-9{
         height: 100%
+    }
+
+    #lrc-table{
+        height: 100%;
     }
 
     #lrc-table > li{

@@ -2,6 +2,7 @@
 /** main.js */
 const AudioName = document.getElementById('audio-name');
 const InputLRCName = document.getElementById('input-lrc-name');
+const LRCName = document.getElementById('lrc-name');
 const MenuBtn = document.getElementById('menu-btn');
 const WindowMenu = document.getElementById('window-menu');
 const WMCClose = document.getElementById('wmc-close');
@@ -10,7 +11,9 @@ const WMCClose = document.getElementById('wmc-close');
 const PlayerAudio = document.getElementById('player-audio');
 
 /** FileManager.js */
+const EditorExportBtnLrc = document.getElementById('editor-export-btn-lrc');
 const EditorImportBtnAudio = document.getElementById('editor-import-btn-audio');
+const EditorImportBtnLrc = document.getElementById('editor-import-btn-lrc');
 const ExportBtnLRC = document.getElementById('export-btn-lrc');
 const ImportBtnAudio = document.getElementById('import-btn-audio');
 const ImportBtnLRC = document.getElementById('import-btn-lrc');
@@ -53,6 +56,8 @@ const PlayerAudioControls = document.getElementById('player-audio-controls');
 // - none
 
 /** Table.js */
+const EditorDelSpecLineBtn = document.getElementById('editor-del-spec-line-btn');
+const EditorNewLineAbSelBtn = document.getElementById('editor-new-line-ab-sel-btn');
 const DelSpecLineBtn = document.getElementById('del-spec-line-btn');
 const NewLineAbSelBtn = document.getElementById('new-line-ab-sel-btn');
 

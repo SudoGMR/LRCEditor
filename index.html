@@ -36,8 +36,32 @@
                             </button>
                             <p id="audio-name">No audio</p>
                         </li>
+                        <li class="divider"></li>
                         <li>
-                            
+                            <button id="import-btn-lrc">
+                                <img src="imgs/folder-open-with-lrc-outline.svg">
+                                <p>Open lryics</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="export-btn-lrc">
+                                <img src="imgs/save-outline.svg">
+                                <p>Save lyrics</p>
+                            </button>
+                            <input id="lrc-name" placeholder="Lyrics name">
+                        </li>
+                        <li class="divider"></li>
+                        <li>
+                            <button id="new-line-ab-sel-btn">
+                                <img src="imgs/new-line.svg">
+                                <p>New Line Above Selected Line</p>
+                            </button>
+                        </li>
+                        <li>
+                            <button id="del-spec-line-btn">
+                                <img src="imgs/delete-line.svg">
+                                <p>Delete Selected Line</p>
+                            </button>
                         </li>
                     </ul>
                     
@@ -45,20 +69,20 @@
                     
                 </div>
                 <div class="col-lg-9">
-                    <span class="editor-btns">
+                    <span class="show-on-720px editor-btns">
                         <button title="Open audio" id="editor-import-btn-audio">
                             <img src="imgs/folder-open-with-musical-notes-outline.svg">
                         </button>
-                        <button title="Open lyrics" id="import-btn-lrc">
+                        <button title="Open lyrics" id="editor-import-btn-lrc">
                             <img src="imgs/folder-open-with-lrc-outline.svg">
                         </button>
-                        <button title="Save lyrics" id="export-btn-lrc">
+                        <button title="Save lyrics" id="editor-export-btn-lrc">
                             <img src="imgs/save-outline.svg">
                         </button>
-                        <button title="New Line Above Selected Line" id="new-line-ab-sel-btn">
+                        <button title="New Line Above Selected Line" id="editor-new-line-ab-sel-btn">
                             <img src="imgs/new-line.svg">
                         </button>
-                        <button title="Delete Selected Line" id="del-spec-line-btn">
+                        <button title="Delete Selected Line" id="editor-del-spec-line-btn">
                             <img src="imgs/delete-line.svg">
                         </button>
                         <input type="file" id="import-hidden-lrc" class="hidden" accept=".lrc">
