@@ -60,18 +60,32 @@ const EditorDelSpecLineBtn = document.getElementById('editor-del-spec-line-btn')
 const EditorNewLineAbSelBtn = document.getElementById('editor-new-line-ab-sel-btn');
 const DelSpecLineBtn = document.getElementById('del-spec-line-btn');
 const NewLineAbSelBtn = document.getElementById('new-line-ab-sel-btn');
+const LRCTable = document.getElementById('lrc-table');
 
 /** TimeSetter.js */
 const TimeSetterBtn = document.getElementById('player-time-setter');
 
 /* --- Event listeners --- */
 MenuBtn.addEventListener('click', () => {
+    history.pushState({name: 'Menu'}, 'Menu');
     WindowMenu.setAttribute('class', '');
 })
 
 WMCClose.addEventListener('click', () => {
+    history.back();
     WindowMenu.setAttribute('class', 'hidden');
 })
+
+window.onpopstate = function(e){
+    if(WICC.getAttribute('class') == ''){
+        WICC.setAttribute('class', 'hidden');
+    }
+    if(WindowMenu.getAttribute('class') == ''){
+        WindowMenu.setAttribute('class', 'hidden');
+    }
+
+    console.log('pop');
+};
 
 /* --- Functions --- */
 

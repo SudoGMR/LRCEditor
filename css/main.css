@@ -17,6 +17,11 @@ body{
     height: 100vh;
 }
 
+#lrc-name{
+    margin: 5px 0 5px 0 !important;
+    width: 100%;
+}
+
 .c-content > .col-3{
     padding: 10px !important;
     

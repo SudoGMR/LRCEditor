@@ -35,8 +35,11 @@ document.addEventListener('click', (e) => {
 });
 
 document.addEventListener('dblclick', (e) => {
-    if(e.target.getAttribute('id').substring(0, 9) == 't-time-p-' || e.target.getAttribute('id').substring(0, 9) == 't-data-p-'){
-        EditLineData(e.target);
+    let el = e.target.getAttribute('id').substring(0, 9);
+    if(el != null){
+        if(el == 't-time-p-' || el == 't-data-p-'){
+            EditLineData(e.target);
+        }
     }
 })
 
@@ -140,19 +143,22 @@ function DelLine(){
 
 function DelSelectedLine(){
     var lineNum = EHData.currentlySelected.getAttribute('id').substring(9);
-    for(let i = lineNum; i < LRCData.length - 1; i++){
-        console.log('moving line ' + (parseInt(i) + parseInt(1)) + ' to line '+ i);
-        var e = (parseInt(i) + parseInt(1));
-        
-        document.getElementById('t-time-p-' + i).innerHTML = LRCData[e].lineTime;
-        document.getElementById('t-data-p-' + i).innerHTML = LRCData[e].lineData;
-        document.getElementById('t-time-input-' + i).value = LRCData[e].lineTime;
-        document.getElementById('t-data-input-' + i).value = LRCData[e].lineData;
-    }
+    if(lineNum != 0){
+        for(let i = lineNum; i < LRCData.length - 1; i++){
+            console.log('moving line ' + (parseInt(i) + parseInt(1)) + ' to line '+ i);
+            var e = (parseInt(i) + parseInt(1));
 
-    LRCData.splice(lineNum, 1);
-    LRCData[LRCData.length - 2].isUsed = false;
-    DelLine();
+            document.getElementById('t-time-p-' + i).innerHTML = LRCData[e].lineTime;
+            document.getElementById('t-data-p-' + i).innerHTML = LRCData[e].lineData;
+            document.getElementById('t-time-input-' + i).value = LRCData[e].lineTime;
+            document.getElementById('t-data-input-' + i).value = LRCData[e].lineData;
+        }
+
+        LRCData.splice(lineNum, 1);
+        LRCData[LRCData.length - 2].isUsed = false;
+        DelLine();
+    }
+    
 }
 
 function EditLineData(e){
@@ -181,7 +187,8 @@ function EditLineData(e){
 }
 
 // - not implemented yet
-function ScrollIntoView(e){
+function ScrollIntoView(cS){
+    /*
     let rect = e.getBoundingClientRect();
     let eTop = rect.top;
     let eBottom = rect.bottom;
@@ -195,6 +202,23 @@ function ScrollIntoView(e){
         console.log('Bottom <= 0');
 
     //return 0;
+    */
+
+    let tableRect = LRCTable.getBoundingClientRect();
+    let cSRect = cS.getBoundingClientRect();
+    console.log(tableRect);
+
+    tableRect.top = tableRect.top + 30;
+    tableRect.bottom = tableRect.bottom - 30;
+
+    console.log(tableRect);
+
+    if(tableRect.top > cSRect.top){
+        cS.scrollIntoView({behavior: 'smooth', block: 'start', inline: 'nearest'}); 
+    }
+    if(tableRect.bottom < cSRect.bottom){
+        cS.scrollIntoView({behavior: 'smooth', block: 'end', inline: 'nearest'});
+    }
 }
 
 function NewLine(){

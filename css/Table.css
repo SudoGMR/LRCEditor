@@ -33,11 +33,11 @@
 }
 
 .selected{
-    background-color: rgba(0, 0, 255, 0.5);
+    background-color: rgba(0, 0, 255, 0.3);
 }
 
 .show{
-    background-color: green;
+    background-color: rgba(0, 200, 0, 0.5);
 }
 
 #t-data-input-0{
@@ -65,6 +65,8 @@ ul{
     [id^="t-time-p-"]{
         min-height: 30px;
         width: 131.3px;
+        overflow-x: visible;
+        overflow-y: visible;
     }
     [id^="t-data-p-"]{
         min-height: 30px;
@@ -99,21 +101,21 @@ ul{
 
 @media screen and (min-width: 720px) {
     [id^="t-time-p-"]{
-        height: 30px;
+        min-height: 30px;
         width: 131.3px;
     }
     [id^="t-data-p-"]{
-        height: 30px;
+        min-height: 30px;
         width: 100%;
         border-left: solid 1px #000000;
     }
     [id^="t-time-input-"]{
-        height: 30px;
-        width: 131.3px;
+        min-height: 30px;
+        width: 117px;
     }
     [id^="t-data-input-"]{
-        height: 30px;
-        width: 100% !important;
+        min-height: 30px;
+        width: 100%;
         border-left: solid 1px #000000;
     }
 

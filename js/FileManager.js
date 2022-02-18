@@ -4,6 +4,7 @@ EditorExportBtnLrc.onclick = () => {
 }
 
 EditorImportBtnLrc.onclick = () => {
+    history.pushState({name: 'Import LRC Menu'}, 'Import LRC Menu');
     WICC.setAttribute('class', '');
 }
 
@@ -20,6 +21,7 @@ ImportBtnAudio.onclick = function(){
 }
 
 ImportBtnLRC.onclick = function(){
+    history.pushState({name: 'Import LRC Menu'}, 'Import LRC Menu');
     WICC.setAttribute('class', '');
 }
 
@@ -44,6 +46,7 @@ LRCName.onchange = () => {
 }
 
 WICCCancel.onclick = function(){
+    history.back();
     WICC.setAttribute('class', 'hidden');
 }
 
@@ -52,6 +55,7 @@ WICCImportFile.onclick = function(){
 }
 
 WICCContinue.onclick = function(){
+    history.back;
     TableSetter(WICCTextArea.value);
     WICCCancel.click();
     WMCClose.click();
@@ -66,6 +70,7 @@ WMCExportBtnLRC.onclick = function(){
 }
 
 WMCImportBtnLRC.onclick = function(){
+    history.pushState({name: 'Menu'}, 'Menu');
     WICC.setAttribute('class', '');
 }
 

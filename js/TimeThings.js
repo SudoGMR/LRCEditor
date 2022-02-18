@@ -100,7 +100,7 @@ function PlayerPlay(timeList){
             timeList[i].line.scrollIntoView({block: 'center', behavior: 'smooth'});
             setTimeout(() => {
                 timeList[i].line.setAttribute('class', '');
-            }, 500)
+            }, 750)
             
         }
     }
