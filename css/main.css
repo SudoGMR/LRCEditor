@@ -22,12 +22,12 @@ body{
     width: 100%;
 }
 
-.c-content > .col-3{
+.c-content > .col-2{
     padding: 10px !important;
-    
+    /*min-width: 300px;*/
 }
 
-.c-content > .col-3 button{
+.c-content > .col-2 button{
     display: flex;
     width: 100%;
     flex-direction: row;
@@ -36,12 +36,12 @@ body{
     border-radius: 5px;
 }
 
-.c-content > .col-3 button > img{
+.c-content > .col-2 button > img{
     height: var(--sidebar-img-size);
     width: var(--sidebar-img-size);
 }
 
-.c-content > .col-3 button > p{
+.c-content > .col-2 button > p{
     display: grid;
     justify-self: center;
     align-self: center;
@@ -50,6 +50,10 @@ body{
 
 .dir-col{
     flex-direction: column;
+}
+
+.dir-col-rw{
+    flex-direction: column-reverse;
 }
 
 .dir-row{
@@ -78,7 +82,7 @@ li.divider{
     display: flex !important;
 }
 
-@media screen and (max-width: 720px){
+@media screen and (max-width: 992px){
     #menu-btn{
         height: 50px !important;
         width: 50px !important;
@@ -109,22 +113,27 @@ li.divider{
     .c-navbar div{
         height: 50px;
     }
+    
     .c-content{
-        height: calc(78vh - 50px);
+        height: calc(100vh - 50px - 100px - 50px);
     }
-    .hide-on-720px{
+    
+    .hide-on-992px{
         display: none;
     }
     
     .show-content > div{
         display: block;
     }
+
     .show-content > input{
         display: block;
     }
-    .show-on-720px{
+
+    .show-on-992px{
         display: flex;
     }
+    
     #window-import-choice{
         position: fixed;
         z-index: 1;
@@ -205,17 +214,17 @@ li.divider{
     }
 }
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 992px) {
     .row{
         padding: 0 5% 0 5% !important;
     }
     .c-navbar{
         height: 5vh;
     }
-    .hide-on-720px{
+    .hide-on-992px{
         display: block;
     }
-    .show-on-720px{
+    .show-on-992px{
         display: none !important;
     }
     .c-content{

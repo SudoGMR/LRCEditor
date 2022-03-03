@@ -13,7 +13,7 @@
         <div class="container-fluid">
             <div class="row navbar c-navbar">
                 <div class="col-2">
-                    <button id="menu-btn" class="show-on-720px" aria-target="phoneMenu" aria-expanded="false">
+                    <button id="menu-btn" class="show-on-992px" aria-target="phoneMenu" aria-expanded="false">
                         <img src="imgs/menu-outline.svg" alt="Menu">
                     </button>
                 </div>
@@ -27,7 +27,7 @@
                 </div>
             </div>
             <div class="row c-content">
-                <div class="col-3 hide-on-720px">
+                <div class="col-2 hide-on-992px">
                     <ul>
                         <li>
                             <h5 id="audio-name">No audio</h5>
@@ -64,12 +64,10 @@
                             </button>
                         </li>
                     </ul>
-                    
                     <input type="file" id="import-hidden-audio" class="hidden" accept=".mp3, .wav">
-                    
                 </div>
-                <div class="col-lg-9">
-                    <span class="show-on-720px editor-btns">
+                <div class="col-lg-10">
+                    <span class="show-on-992px editor-btns">
                         <button title="Open audio" id="editor-import-btn-audio">
                             <img src="imgs/folder-open-with-musical-notes-outline.svg">
                         </button>
@@ -91,26 +89,28 @@
                 </div>
             </div>
             <div class="row player-controls">
-                <div class="col-12-lg justify-content-lg-center justify-content-evenly align-items-end" style="display: flex;">
+                <div class="col-lg-12">
+                    <input type="range" orient="horizontal" id="player-progress-bar" min="0" max="0" value="0">
+                </div>
+                <div class="col-lg-12 player-time">
+                    <p id="player-current-time">--:--.--</p>
+                    <p>/</p>
+                    <p id="player-audio-length">--:--.--</p>
+                </div>
+                <div class="col-lg-12 player-btns">
                     <button id="player-btn-rewind" class="player-btn"><img id="player-img-rewind" src="imgs/play-back-outline.svg" alt="rew"></button>
                     <button id="player-btn-play-pause" class="player-btn"><img id="player-img-pp" src="imgs/play-outline.svg" alt="play"></button>
                     <button id="player-time-setter" class="player-btn"><img src="imgs/ellipse.svg" alt="Add Time"></button>
-                    <div id="player-audio-controls" class="hide-on-720px">
-                        <button id="pac-phone-btn" class="player-btn show-on-720px"><img id="player-phone-volume-img" src="imgs/volume-medium-outline.svg"></button>
-                        <img id="player-volume-img" class="hide-on-720px" src="imgs/volume-medium-outline.svg">
+                    <div id="player-audio-controls" class="hide-on-992px">
+                        <button id="pac-phone-btn" class="player-btn show-on-992px">
+                            <img id="player-phone-volume-img" src="imgs/volume-medium-outline.svg">
+                        </button>
+                        <img id="player-volume-img" class="hide-on-992px" src="imgs/volume-medium-outline.svg">
                         <div id="player-volume"></div>
                         <input type="range" orient="vertical" id="player-volume-bar" min="0" max="100" value="50">
                     </div>
                     <button id="player-btn-foward" class="player-btn"><img id="player-img-foward" src="imgs/play-forward-outline.svg" alt="fow"></button>
                     <audio id="player-audio"></audio>
-                </div>
-                <div class="col-lg-12 d-flex align-items-center dir-col">
-                    <span class="player-time">
-                        <span id="player-current-time">--:--.---</span>
-                        <span>/</span>
-                        <span id="player-audio-length">--:--.---</span>
-                    </span>
-                    <input type="range" orient="horizontal" id="player-progress-bar" min="0" max="0" value="0">
                 </div>
             </div>
         </div>

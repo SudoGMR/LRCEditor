@@ -61,7 +61,7 @@ ul{
     height: 93%;
 }
 
-@media screen and (max-width: 720px) {
+@media screen and (max-width: 992px) {
     [id^="t-time-p-"]{
         min-height: 30px;
         width: 131.3px;
@@ -83,14 +83,14 @@ ul{
         border-left: solid 1px #000000;
     }
 
-    .c-content .col-lg-9{
+    .c-content .col-lg-10{
         height: 100%;
     }
 
     #lrc-table{
         width: 100vw;
-        height: 93%;
-        padding: 5px !important;
+        height: calc(100% - 50px);
+        padding: 0 5px 0 5px !important;
     }
     /*
     .table-input{
@@ -99,7 +99,7 @@ ul{
     }*/
 }
 
-@media screen and (min-width: 720px) {
+@media screen and (min-width: 992px) {
     [id^="t-time-p-"]{
         min-height: 30px;
         width: 131.3px;
@@ -119,7 +119,7 @@ ul{
         border-left: solid 1px #000000;
     }
 
-    .c-content .col-lg-9{
+    .c-content .col-lg-10{
         height: 100%
     }
 
