@@ -197,3 +197,6 @@ function TableSetter(e){
     }
     DelLine();
 }
+
+/* --- Run on start --- */
+LRCName.value = '';

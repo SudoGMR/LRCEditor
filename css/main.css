@@ -3,7 +3,7 @@
     --player-btn-size: 50px;
     --player-progress-bar-thumb-height: 20px;
     --player-progress-bar-thumb-width: 10px;
-    --sidebar-img-size: 40px;
+    --sidebar-img-size: 30px;
 }
 
 /* --- */
@@ -24,7 +24,6 @@ body{
 
 .c-content > .col-2{
     padding: 10px !important;
-    /*min-width: 300px;*/
 }
 
 .c-content > .col-2 button{
@@ -46,6 +45,10 @@ body{
     justify-self: center;
     align-self: center;
     width: 100%;
+}
+
+.c-navbar{
+    height: var(--player-btn-size);
 }
 
 .dir-col{
@@ -218,17 +221,17 @@ li.divider{
     .row{
         padding: 0 5% 0 5% !important;
     }
-    .c-navbar{
-        height: 5vh;
-    }
+
     .hide-on-992px{
         display: block;
     }
+
     .show-on-992px{
         display: none !important;
     }
+
     .c-content{
-        height: 80vh;
+        height: calc(100vh - 50px - 100px - 25px);
         width: 100vw;
         overflow: hidden;
     }

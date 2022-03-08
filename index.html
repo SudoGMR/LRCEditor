@@ -22,9 +22,7 @@
                         LRCEditor
                     </a>
                 </div>
-                <div class="col-2 d-flex">
-                    <button class="width-50px" style="background-color: #c0c0c0;" onclick="console.log(FileData, LRCData, EditorData, EHData)"></button>
-                </div>
+                <div class="col-2 d-flex"></div>
             </div>
             <div class="row c-content">
                 <div class="col-2 hide-on-992px">
@@ -54,13 +52,13 @@
                         <li>
                             <button id="new-line-ab-sel-btn">
                                 <img src="imgs/new-line.svg">
-                                <p>New Line Above Selected Line</p>
+                                <p>Insert Above Line</p>
                             </button>
                         </li>
                         <li>
                             <button id="del-spec-line-btn">
                                 <img src="imgs/delete-line.svg">
-                                <p>Delete Selected Line</p>
+                                <p>Delete Line</p>
                             </button>
                         </li>
                     </ul>
@@ -85,10 +83,15 @@
                         </button>
                         <input type="file" id="import-hidden-lrc" class="hidden" accept=".lrc">
                     </span>
+                    <div class="lrc-table-ex">
+                        <h6 class="t-time-ex">Time</h6>
+                        <h6 class="t-data-ex">Lyrics</h6>
+                    </div>
                     <ul id="lrc-table"></ul>
                 </div>
             </div>
             <div class="row player-controls">
+                <div class="col-lg-12" style="height: 25px"></div>
                 <div class="col-lg-12">
                     <input type="range" orient="horizontal" id="player-progress-bar" min="0" max="0" value="0">
                 </div>
