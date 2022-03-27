@@ -60,6 +60,10 @@ document.addEventListener('keydown', (e) => {
                 CancelLineAction(currentlySelected, lastSelected);
             }
         }
+    } else {
+        if(["Space"].indexOf(e.code) > -1) {
+            e.preventDefault();
+        }
     }
     if(currentlySelected.getAttribute('id').substring(6, 9) == '-p-'){
         if(WICC.getAttribute('class') == 'hidden'){
